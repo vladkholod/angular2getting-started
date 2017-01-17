@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'pm-app',
-    template: `
-        <h1>Angular2: Getting Started</h1>
-    `
+    selector: 'vk-app',
+    templateUrl: 'app/app.component.html'
 })
-export class AppComponent { }
+export class AppComponent {
+    public pageTitle: string = 'Main page';
+}
