@@ -6,6 +6,14 @@ import { Component } from '@angular/core';
 })
 export class ProductListComponent {
     public pageTitle: string = 'Product List';
+
+    public imageSize: number = 50;
+    public imageMargin: number = 2;
+
+    public showImages: boolean = false;
+
+    public productsFilter: string = 'cart';
+
     public products: any[] = [
         {
             'productId': 1,
@@ -58,4 +66,8 @@ export class ProductListComponent {
             'imageUrl': 'http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png'
         }
     ];
+
+    public toggleImages(): void {
+        this.showImages = !this.showImages;
+    }
 }
