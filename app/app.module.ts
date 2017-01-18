@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ProductFilterPipe } from './product-list/product-filter-pipe';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { ProductListComponent } from './product-list/product-list.component';
   ],
   declarations: [
     AppComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductFilterPipe
   ],
   bootstrap: [ AppComponent ]
 })

@@ -32,7 +32,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of products">
+                    <tr *ngFor="let product of products | productFilter: productsFilter">
                         <td>
                             <img *ngIf="showImages"
                                  [src]="product.imageUrl"

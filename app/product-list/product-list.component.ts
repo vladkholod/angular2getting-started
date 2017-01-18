@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { IProduct } from './product';
 
 @Component({
+    moduleId: module.id,
     selector: 'vk-product-list',
-    templateUrl: 'app/product-list/product-list.component.html',
-    styleUrls: ['app/product-list/product-list.component.css']
+    templateUrl: 'product-list.component.html',
+    styleUrls: ['product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
     public pageTitle: string = 'Product List';
@@ -14,7 +15,7 @@ export class ProductListComponent implements OnInit {
 
     public showImages: boolean = false;
 
-    public productsFilter: string = 'cart';
+    public productsFilter: string = 'Rake';
 
     public products: IProduct[] = [
         {
