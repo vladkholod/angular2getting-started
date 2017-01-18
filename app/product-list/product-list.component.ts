@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { IProduct } from './product';
 
 @Component({
     selector: 'vk-product-list',
-    templateUrl: 'app/product-list/product-list.component.html'
+    templateUrl: 'app/product-list/product-list.component.html',
+    styleUrls: ['app/product-list/product-list.component.css']
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
     public pageTitle: string = 'Product List';
 
     public imageSize: number = 50;
@@ -14,58 +16,52 @@ export class ProductListComponent {
 
     public productsFilter: string = 'cart';
 
-    public products: any[] = [
+    public products: IProduct[] = [
         {
-            'productId': 1,
-            'productName': 'Leaf Rake',
-            'productCode': 'GDN-0011',
-            'releaseDate': 'March 19, 2016',
-            'description': 'Leaf rake with 48-inch wooden handle.',
-            'price': 19.95,
-            'starRating': 3.2,
-            'imageUrl': 'http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png'
+            id: 1,
+            name: 'Leaf Rake',
+            code: 'GDN-0011',
+            releaseDate: 'March 19, 2016',
+            description: 'Leaf rake with 48-inch wooden handle.',
+            price: 19.95,
+            starRating: 3.2,
+            imageUrl: 'http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png'
         },
         {
-            'productId': 2,
-            'productName': 'Garden Cart',
-            'productCode': 'GDN-0023',
-            'releaseDate': 'March 18, 2016',
-            'description': '15 gallon capacity rolling garden cart',
-            'price': 32.99,
-            'starRating': 4.2,
-            'imageUrl': 'http://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png'
+            id: 2,
+            name: 'Leaf Rake',
+            code: 'GDN-0011',
+            releaseDate: 'March 19, 2016',
+            description: 'Leaf rake with 48-inch wooden handle.',
+            price: 19.95,
+            starRating: 3.2,
+            imageUrl: 'http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png'
         },
         {
-            'productId': 5,
-            'productName': 'Hammer',
-            'productCode': 'TBX-0048',
-            'releaseDate': 'May 21, 2016',
-            'description': 'Curved claw steel hammer',
-            'price': 8.9,
-            'starRating': 4.8,
-            'imageUrl': 'http://openclipart.org/image/300px/svg_to_png/73/rejon_Hammer.png'
+            id: 3,
+            name: 'Leaf Rake',
+            code: 'GDN-0011',
+            releaseDate: 'March 19, 2016',
+            description: 'Leaf rake with 48-inch wooden handle.',
+            price: 19.95,
+            starRating: 3.2,
+            imageUrl: 'http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png'
         },
         {
-            'productId': 8,
-            'productName': 'Saw',
-            'productCode': 'TBX-0022',
-            'releaseDate': 'May 15, 2016',
-            'description': '15-inch steel blade hand saw',
-            'price': 11.55,
-            'starRating': 3.7,
-            'imageUrl': 'http://openclipart.org/image/300px/svg_to_png/27070/egore911_saw.png'
-        },
-        {
-            'productId': 10,
-            'productName': 'Video Game Controller',
-            'productCode': 'GMG-0042',
-            'releaseDate': 'October 15, 2015',
-            'description': 'Standard two-button video game controller',
-            'price': 35.95,
-            'starRating': 4.6,
-            'imageUrl': 'http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png'
+            id: 4,
+            name: 'Leaf Rake',
+            code: 'GDN-0011',
+            releaseDate: 'March 19, 2016',
+            description: 'Leaf rake with 48-inch wooden handle.',
+            price: 19.95,
+            starRating: 3.2,
+            imageUrl: 'http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png'
         }
     ];
+
+    public ngOnInit(): void {
+        console.log('Product-list is initialized.');
+    }
 
     public toggleImages(): void {
         this.showImages = !this.showImages;
