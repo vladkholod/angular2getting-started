@@ -1,3 +1,16 @@
 thead {
     color: #337AB7;
 }
+
+div.notification-list {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #add8e5;
+    z-index: 100;
+    width: 100%;
+}
+
+div.notification-list .notification {
+    text-align: center;
+}

@@ -16,6 +16,7 @@ export class ProductListComponent implements OnInit {
     public showImages: boolean = false;
 
     public productsFilter: string = 'Rake';
+    public notifications: Array<string> = new Array<string>();
 
     public products: IProduct[] = [
         {
@@ -25,7 +26,7 @@ export class ProductListComponent implements OnInit {
             releaseDate: 'March 19, 2016',
             description: 'Leaf rake with 48-inch wooden handle.',
             price: 19.95,
-            starRating: 3.2,
+            starRating: 1.2,
             imageUrl: 'http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png'
         },
         {
@@ -35,7 +36,7 @@ export class ProductListComponent implements OnInit {
             releaseDate: 'March 19, 2016',
             description: 'Leaf rake with 48-inch wooden handle.',
             price: 19.95,
-            starRating: 3.2,
+            starRating: 2.2,
             imageUrl: 'http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png'
         },
         {
@@ -55,7 +56,7 @@ export class ProductListComponent implements OnInit {
             releaseDate: 'March 19, 2016',
             description: 'Leaf rake with 48-inch wooden handle.',
             price: 19.95,
-            starRating: 3.2,
+            starRating: 4.2,
             imageUrl: 'http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png'
         }
     ];
@@ -66,5 +67,11 @@ export class ProductListComponent implements OnInit {
 
     public toggleImages(): void {
         this.showImages = !this.showImages;
+    }
+
+    public onRatingClicked(message: string): void {
+        this.notifications.push(message);
+
+        setTimeout(() => this.notifications.shift(), 3000);
     }
 }

@@ -1,0 +1,9 @@
+<div class="crop" 
+    [style.width.px]="starWidth"
+    [title]="rating"
+    (click)='onClick()'>
+    <div [style.width.px]="starContainerWidth">
+        <span class="glyphicon glyphicon-star"
+              *ngFor="let x of getStarArray()"></span>
+    </div>
+</div>
