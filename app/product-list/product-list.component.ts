@@ -22,11 +22,15 @@ export class ProductListComponent implements OnInit {
     public productsFilter: string = 'Rake';
     public notifications: Array<string> = new Array<string>();
 
+    public errorMessage: string;
+
     public constructor(private productListService: ProductListService) {
     }
 
     public ngOnInit(): void {
-        this.products = this.productListService.getProducts();
+        this.productListService.getProducts()
+            .subscribe((products: Array<IProduct>) => this.products = products,
+            error => this.errorMessage = <any>error);
     }
 
     public toggleImages(): void {

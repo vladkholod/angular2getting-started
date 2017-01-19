@@ -1,46 +1,29 @@
 import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/catch';
+
 import { IProduct } from './product';
 
 @Injectable()
 export class ProductListService {
+    private productUrl: string = 'api/products/products.json';
 
-    public getProducts(): Array<IProduct> {
-        return [{
-            id: 1,
-            name: 'Leaf Rake',
-            code: 'GDN-0011',
-            releaseDate: 'March 19, 2016',
-            description: 'Leaf rake with 48-inch wooden handle.',
-            price: 19.95,
-            starRating: 1.2,
-            imageUrl: 'http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png'
-        }, {
-            id: 2,
-            name: 'Leaf Rake',
-            code: 'GDN-0011',
-            releaseDate: 'March 19, 2016',
-            description: 'Leaf rake with 48-inch wooden handle.',
-            price: 19.95,
-            starRating: 2.2,
-            imageUrl: 'http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png'
-        }, {
-            id: 3,
-            name: 'Leaf Rake',
-            code: 'GDN-0011',
-            releaseDate: 'March 19, 2016',
-            description: 'Leaf rake with 48-inch wooden handle.',
-            price: 19.95,
-            starRating: 3.2,
-            imageUrl: 'http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png'
-        }, {
-            id: 4,
-            name: 'Leaf Rake',
-            code: 'GDN-0011',
-            releaseDate: 'March 19, 2016',
-            description: 'Leaf rake with 48-inch wooden handle.',
-            price: 19.95,
-            starRating: 4.2,
-            imageUrl: 'http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png'
-        }];
+    public constructor(private http: Http) {
+
+    }
+
+    public getProducts(): Observable<Array<IProduct>> {
+        return this.http.get(this.productUrl)
+            .map((response: Response) => <Array<IProduct>>response.json())
+            .do(data => console.log('All: ', JSON.stringify(data)))
+            .catch(this.handleError);
+    }
+
+    private handleError(error: Response): Observable<{}> {
+        console.error(error);
+        return Observable.throw(error.json().error || 'Server error');
     }
 }
