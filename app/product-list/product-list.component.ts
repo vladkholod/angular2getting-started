@@ -5,7 +5,6 @@ import { ProductListService } from './product-list.service';
 
 @Component({
     moduleId: module.id,
-    selector: 'vk-product-list',
     templateUrl: 'product-list.component.html',
     styleUrls: ['product-list.component.css']
 })
