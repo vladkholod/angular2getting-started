@@ -47,7 +47,10 @@
                                  [style.height.px]="imageSize"
                                  [style.margin-bottom.px]="imageMargin" />
                         </td>
-                        <td [innerHtml]="product.name"></td>
+                        <td>
+                            <a [routerLink]="['/product', product.id]"
+                               [innerHtml]="product.name"></a>
+                        </td>
                         <td [innerHtml]="product.code | lowercase"></td>
                         <td [innerHtml]="product.releaseDate"></td>
                         <td [innerHtml]="product.price | currency:'USD':true:'1.2-2'"></td>

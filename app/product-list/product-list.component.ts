@@ -18,7 +18,7 @@ export class ProductListComponent implements OnInit {
 
     public products: Array<IProduct>;
 
-    public productsFilter: string = 'Rake';
+    public productsFilter: string = '';
     public notifications: Array<string> = new Array<string>();
 
     public errorMessage: string;
